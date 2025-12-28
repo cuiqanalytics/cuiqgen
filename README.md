@@ -212,6 +212,83 @@ job_title: generates a random job title
 
 For detailed provider documentation, see [PROVIDERS.md](docs/PROVIDERS.md).
 
+## Using Locales
+
+Many providers support different locales for generating localized data. For example
+
+```bash
+# Generate spanish data
+cuiqgen run -n 1000 --locale es -p "first_name('es');last_name('es');email;country" spanish_users.csv
+```
+
+**Supported locales**: Currently en, es. More locales will be added in the future.
+
+## Preview Mode
+
+Preview generated data before writing to a file:
+
+```bash
+# Preview 10 records without saving
+cuiqgen run -p "uuid;first_name;last_name;email;phone" --preview
+```
+
+**Note**: Currently preview is fixed at 10 records.
+
+## More Examples
+
+### Generate E-commerce Product Data
+
+You can customize the interval resolution for some functions, for example `price`:
+
+```bash
+cuiqgen run --preview -p "uuid;sku;product;category;price(1000,5000,'$',100);currency;amount(1,1000)"
+```
+
+### Generate Customer Transactions with Timestamps
+
+```bash
+cuiqgen run --preview -p "uuid;first_name;last_name;email;date('2023-01-01','2024-12-31');amount(5,10000);currency"
+```
+
+### Generate Server Logs
+
+```bash
+cuiqgen run --preview -p "date('2020-02-01','2020-03-01');http_status_code;http_method;float(0,5,2);internet_browser"
+```
+
+### Generate Healthcare Data
+
+```bash
+cuiqgen run --preview -p "uuid;first_name;last_name;ssn;phone;drug;dose;date('2023-01-01','2024-12-31')"
+```
+
+### Generate Financial Data with Distributions
+
+```bash
+cuiqgen run --preview -p "uuid;email;normal(50000,10000);exponential(0.001);currency;bank_name;iban"
+```
+
+### Generate Large Dataset in Parquet
+
+```bash
+cuiqgen run -n 20000000 \
+  -p "uuid;first_name;last_name;email;phone;country;amount(100,10000)" \
+  massive_dataset.parquet
+```
+
+### Generate Data with Custom Choices
+
+```bash
+cuiqgen run --preview -p "uuid;email;choice(['active','inactive','pending']);job_title;amount(50000,200000);currency"
+```
+
+### Generate Reproducible Data (Seeded)
+
+```bash
+# Generate with seed for reproducibility (it will produce the same data if you repeat the same command)
+cuiqgen run --preview --seed 0.42 -p "uuid;first_name;last_name;email;phone"
+```
+
 ## Performance
 
 Generation speeds (on modern hardware):
