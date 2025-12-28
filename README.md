@@ -10,9 +10,10 @@ A fast, self-contained CLI tool for generating synthetic data in multiple format
 - 🔌 **Custom providers** - 70+ built-in data generators
 - 🌍 **Local-first** - No external API calls
 - 🛠️ **Cross-platform** - Windows, macOS, Linux
+- 🔐 **Reproducible** - Seed support for deterministic output
 - 📝 **AI-friendly** - Optional prompt-based generation (planned for 2026)
 - 📝 **Relational models** - Generate relational models from configuration file (planned for 2026)
-- 🔐 **Reproducible** - Seed support for deterministic output
+- 📝 **Basic Web UI** - Simple UI assistant (planned for 2026)
 
 ## Installation
 
@@ -364,9 +365,9 @@ chmod 755 /path/to/output
 
 Suggestions are welcome!
 
-## MIT License
+## License
 
-Copyright © 2025 cuiqAnalytics. All rights reserved.
+Free for personal or company non-commercial use. Check [LICENSE](LICENSE)
 
 ## Version
 
