@@ -1,4 +1,4 @@
-# cuiqgen - Quick Sample Data Generator (preview)
+# cuiqgen - Quick Sample Data Generator
 
 A fast, self-contained CLI tool for generating synthetic data in multiple formats. No external dependencies, no Python required.
 
@@ -37,7 +37,7 @@ cuiqgen providers
 ### Generate sample data
 
 ```bash
-cuiqgen run --number 1000 --providers "uuid;email;phone;country;rand_amount(1,1000)" data.csv
+cuiqgen run --number 1000 --providers "uuid;email;phone;country;amount(1,1000)" data.csv
 ```
 
 ## General usage
@@ -59,14 +59,17 @@ cuiqgen run [FLAGS] [FILENAME]
 # Generate 1000 user records in CSV
 cuiqgen run -n 1000 -p "uuid;first_name;last_name;email;phone" users.csv
 
+# Generate 1000 user records in Excel
+cuiqgen run -n 1000 -p "uuid;first_name;last_name;email;phone" users.xlsx
+
 # Generate 5000 transaction records
-cuiqgen run -n 5000 -p "uuid;rand_amount(100,10000);currency;rand_date" transactions.csv
+cuiqgen run -n 5000 -p "uuid;amount(100,10000);currency;date('2020-01-01','2020-12-31')" transactions.csv
 
 # Generate in JSON format with verbose output
-cuiqgen run -n 500 -p "sku;product;rand_price;currency" -v products.json
+cuiqgen run -n 500 -p "sku;product;price(1000,3000,'USD',100);currency" products.json
 
 # Generate large dataset in Parquet
-cuiqgen run -n 1000000 -p "uuid;rand_date;country;rand_amount(1,1000)" events.parquet
+cuiqgen run -n 1000000 -p "uuid;country;amount(1,1000)" events.parquet
 ```
 
 ## Available Data Providers
