@@ -40,9 +40,7 @@ cuiqgen providers
 cuiqgen run --number 1000 --providers "uuid;email;phone;country;rand_amount(1,1000)" data.csv
 ```
 
-## Usage
-
-### Generate Command
+## General usage
 
 ```
 cuiqgen run [FLAGS] [FILENAME]
@@ -73,6 +71,7 @@ cuiqgen run -n 1000000 -p "uuid;rand_date;country;rand_amount(1,1000)" events.pa
 
 ## Available Data Providers
 
+```
 Animals:
 ────────────────────────────────────────
 animal_farm: generates a random farm animal
@@ -209,6 +208,7 @@ company: generates a random company name
 job_descriptor: generates a random job descriptor
 job_level: generates a random job level
 job_title: generates a random job title
+```
 
 For detailed provider documentation, see [PROVIDERS.md](docs/PROVIDERS.md).
 
