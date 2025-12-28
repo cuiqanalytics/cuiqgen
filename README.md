@@ -315,20 +315,20 @@ cuiqgen run -n 1000 -p "uuid;first_name;last_name;email;phone;country" test_user
 ### Create Sample Transactions
 
 ```bash
-cuiqgen run -n 50000 -p "uuid;rand_date;rand_amount(100,5000);currency;bank_name" transactions.csv
+cuiqgen run -n 50000 -p "uuid;date('2024-01-01','2024-12-31');amount(100,5000);currency;bank_name" transactions.csv
 ```
 
 ### Generate Product Catalog
 
 ```bash
-cuiqgen run -n 10000 -p "sku;product;rand_price;currency" products.csv
+cuiqgen run -n 10000 -p "sku;product;price(1000,5000,'USD',100);currency" products.csv
 ```
 
 ### Testing Different Scenarios
 
 ```bash
 # Generate test data multiple times
-cuiqgen run -n 100 -p "uuid;email;rand_amount(10,1000);rand_date" test_data.csv
+cuiqgen run -n 100 -p "uuid;email;amount(10,1000);date('2024-01-01','2024-12-31')" test_data.csv
 ```
 
 ## Troubleshooting
@@ -340,8 +340,8 @@ cuiqgen run -n 100 -p "uuid;email;rand_amount(10,1000);rand_date" test_data.csv
 cuiqgen providers
 
 # Check spelling - provider names are case-sensitive
-cuiqgen run -p "rand_uuid;rand_first_name" data.csv  # ✓ correct
-cuiqgen run -p "uuid;first_name" data.csv   # ✗ wrong (missing rand_ prefix)
+cuiqgen run -p "uuid;first_name" data.csv  # ✓ correct
+cuiqgen run -p "UUID;first_name" data.csv   # ✗ wrong (UUID should be lowercase)
 ```
 
 ### Out of memory with large datasets
@@ -349,7 +349,7 @@ cuiqgen run -p "uuid;first_name" data.csv   # ✗ wrong (missing rand_ prefix)
 For very large datasets (100M+ records), use Parquet format which is more memory-efficient:
 
 ```bash
-cuiqgen run -n 1000000000 -p "rand_uuid;rand_amount(1;1000)" data.parquet
+cuiqgen run -n 1000000000 -p "uuid;amount(1,1000)" data.parquet
 ```
 
 ### Permission denied error
