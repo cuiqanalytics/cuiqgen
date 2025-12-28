@@ -213,8 +213,6 @@ job_level(): job level
 job_title(locale): job title with locale `locale` (default: en)
 ```
 
-For detailed provider documentation, see [PROVIDERS.md](docs/PROVIDERS.md).
-
 ## Using Locales
 
 Many providers support different locales for generating localized data. For example
