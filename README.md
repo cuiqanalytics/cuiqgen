@@ -1,4 +1,4 @@
-# cuiqgen - Quick Sample Data Generator
+# cuiqgen - Quick Sample Data Generator (preview)
 
 A fast, self-contained CLI tool for generating synthetic data in multiple formats. No external dependencies, no Python required.
 
