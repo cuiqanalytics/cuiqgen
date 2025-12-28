@@ -76,142 +76,143 @@ cuiqgen run -n 1000000 -p "uuid;country;amount(1,1000)" events.parquet
 ## Available Data Providers
 
 ```
+Available Data Providers (76 total)
+
 Animals:
 ────────────────────────────────────────
-animal_farm: generates a random farm animal
-animal_petname: generates a random pet name
-animal_type: generates a random animal type
-cat_breed: generates a random cat breed
+animal_farm(): generates a random farm animal
+animal_petname(): generates a random pet name
+animal_type(): generates a random animal type
+cat_breed(): generates a random cat breed
 
 Banking:
 ────────────────────────────────────────
-bank_account: generates a random bank account number
-bank_name: generates a random bank name
-iban: generates a random IBAN
+bank_account(): generates a random bank account number
+bank_name(): generates a random bank name
+iban(): generates a random IBAN
 
 Colors:
 ────────────────────────────────────────
-color_safe: generates a random web-safe color
+color_safe(): generates a random web-safe color
 
 Common:
 ────────────────────────────────────────
-amount: generates a random amount between low and high inclusive
-bool: generates a random boolean
-choice: generates a random selects a random element from an array [...elements...]
-hex: generates a random hexadecimal digit
-letter: generates a random letter
-rgb_hex: generates a random RGB color in hexadecimal format
-sentence: generates a random sentence
+amount(low,high,res): generates a random amount between `low` (integer) and `high` (integer), both inclusive, with specified resolution `res` (integer, default 1). For example: amount(1000,2000,100)
+bool(): generates a random boolean (true or false)
+choice(arr): generates a random selects a random element from an array, for example: choice(['a','b','c'])
+hex(): generates a random hexadecimal digit
+letter(): generates a random letter
+rgb_hex(): generates a random RGB color in hexadecimal format
+sentence(words): generates a random sentence with `words` (default 10) random words
 
 Currency:
 ────────────────────────────────────────
-currency_code: generates a random currency code
+currency_code(): generates a random currency code
 
 Dates:
 ────────────────────────────────────────
-date: generates a random date between two dates
+date(min_date,max_date): generates a random date between two dates
 
 Distributions:
 ────────────────────────────────────────
-beta: generates a random value from Beta distribution (0-1 range)
-exponential: generates a random value from exponential distribution with rate lambda
-lognormal: generates a random value from lognormal distribution
-normal: generates a random value from a normal distribution with given mean and standard deviation
-pareto: generates a random value from Pareto distribution
-poisson: generates a random approximate random value from Poisson distribution with parameter lambda
-uniform: generates a random value from uniform distribution [a, b]
-weibull: generates a random value from Weibull distribution
+beta(α,β): generates a random value from Beta distribution (0-1 range) with parameters `α` and `β`
+exponential(λ): generates a random value from exponential distribution with rate `λ`
+lognormal(μ,σ): generates a random value from lognormal distribution with given mean `μ` and standard deviation `σ`
+normal(μ,σ): generates a random value from a normal distribution with given mean `μ` and standard deviation `σ`
+pareto(xmin,α): generates a random value from Pareto distribution with minimum value `xmin` and shape `α`
+poisson(λ): generates a random approximate random value from Poisson distribution with parameter `λ`
+uniform(a,b): generates a random value from uniform distribution between `a` and `b`
+weibull(shape,scale): generates a random value from Weibull distribution with shape `shape` and scale `scale`
 
 Identifiers_and_passwords:
 ────────────────────────────────────────
-password: generates a random password
-rut: generates a random chilean RUT
-ssn: generates a random US Social Security Number
-uuid: generates a random UUID
+password(n): generates a random password with `n` characters (default 16)
+rut(): generates a random chilean RUT
+ssn(): generates a random US Social Security Number
+uuid(): generates a random UUID
 
 Language:
 ────────────────────────────────────────
-language_code: generates a random language code
+language_code(): generates a random language code
 
 Location:
 ────────────────────────────────────────
-country: generates a random country name
-iso2: generates a random ISO 2 country code
-lat: generates a random latitude
-lon: generates a random longitude
-street_prefix: generates a random street prefix
-street_suffix: generates a random street suffix
+country(locale): generates a random country name with locale `locale` (default: en)
+iso2(): generates a random ISO 2 country code
+lat(): generates a random latitude
+lon(): generates a random longitude
+street_prefix(): generates a random street prefix
+street_suffix(): generates a random street suffix
 
 Logging:
 ────────────────────────────────────────
-apache_log_level: generates a random Apache log level
-log_level: generates a random log level
-syslog_level: generates a random syslog level
+apache_log_level(): generates a random Apache log level
+log_level(): generates a random log level
+syslog_level(): generates a random syslog level
 
 Numerical:
 ────────────────────────────────────────
-float: generates a random float between a and b with specified precision `prec`
-int: generates a random integer between a and b inclusive
-serial_id: generates a random serial integer number in ascending order
+float(a,b,prec): generates a random float between `a` and `b` with specified rounding precision `prec` (default=2)
+int(a,b): generates a random integer between a and b inclusive
+serial_id(): generates a random serial integer number in ascending order
 
 Payments:
 ────────────────────────────────────────
-payment_card_type: generates a random payment card type
+payment_card_type(): generates a random payment card type
 
 Personal:
 ────────────────────────────────────────
-email: generates a random email address
-email_from_name: generates a random email address from first name and last name
-first_name: generates a random first name
-gender: generates a random gender
-last_name: generates a random last name
-name: generates a random full name
-phone: generates a random phone number
-prefix: generates a random name prefix
-suffix: generates a random name suffix
+email(domain): generates a random email address with domain `domain` (default: @example.com)
+email_from_name(first_name,last_name,domain): generates a random email address from first name and last name with domain `domain` (default: @example.com)
+first_name(locale): generates a random first name with locale `locale` (default: en)
+gender(extended): generates a random gender with optional `extended` flag (default: false)
+last_name(locale): generates a random last name with locale `locale` (default: en)
+name(): generates a random full name
+phone(): generates a random phone number
+prefix(): generates a random name prefix
+suffix(): generates a random name suffix
 
 Pharma:
 ────────────────────────────────────────
-dose: generates a random dose
-drug: generates a random drug
-nrx: generates a random NRX
+dose(): generates a random dose
+drug(): generates a random drug
+nrx(): generates a random NRX
 
 Products:
 ────────────────────────────────────────
-category: generates a random category
-currency: generates a random currency
-price: generates a random price between `a` and `b`
-product: generates a random product
-sku: generates a random SKU
+category(): generates a random category
+currency(): generates a random currency
+price(a,b,prefix,res): generates a random price between `a` and `b` with `prefix` (default $) and `res` (default 1)
+product(): generates a random product
+sku(): generates a random SKU
 
 Tech:
 ────────────────────────────────────────
-hacker_abbreviation: generates a random abbreviation
-hacker_adjective: generates a random adjective
-hacker_noun: generates a random noun
-hacker_verb: generates a random verb
+hacker_abbreviation(): generates a random abbreviation
+hacker_adjective(): generates a random adjective
+hacker_noun(): generates a random noun
+hacker_verb(): generates a random verb
 
 Vehicles:
 ────────────────────────────────────────
-vehicle_fuel_type: generates a random vehicle fuel type
-vehicle_maker: generates a random vehicle manufacturer
-vehicle_transmission_type: generates a random vehicle transmission type
-vehicle_type: generates a random vehicle type
+vehicle_fuel_type(): generates a random vehicle fuel type
+vehicle_maker(): generates a random vehicle manufacturer
+vehicle_transmission_type(): generates a random vehicle transmission type
+vehicle_type(): generates a random vehicle type
 
 Web:
 ────────────────────────────────────────
-domain_suffix: generates a random domain suffix
-http_method: generates a random HTTP method
-http_status_code: generates a random HTTP status code from general set
-http_status_simple: generates a random HTTP status code from simple set
-internet_browser: generates a random web browser
+domain_suffix(): generates a random domain suffix
+http_method(): generates a random HTTP method
+http_status_code(): generates a random HTTP status code from general set
+http_status_simple(): generates a random HTTP status code from simple set
+internet_browser(): generates a random web browser
 
 Work:
 ────────────────────────────────────────
-company: generates a random company name
-job_descriptor: generates a random job descriptor
-job_level: generates a random job level
-job_title: generates a random job title
+job_descriptor(): generates a random job descriptor
+job_level(): generates a random job level
+job_title(locale): generates a random job title with locale `locale` (default: en)
 ```
 
 For detailed provider documentation, see [PROVIDERS.md](docs/PROVIDERS.md).
